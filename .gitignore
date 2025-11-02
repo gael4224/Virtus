@@ -1,44 +1,83 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencias (NO subir a GitHub)
+**/node_modules/
+node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Build de Next.js (NO subir)
+**/.next/
+.next/
+.next/**
+out/
+build/
+dist/
 
-# testing
-/coverage
+# Archivos de entorno (INFORMACIÓN SENSIBLE)
+.env
+.env.local
+.env*.local
+*.env
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+# Archivos de sistema operativo
 .DS_Store
-*.pem
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+__MACOSX/
 
-# debug
+# Archivos de IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# local env files
-.env*.local
-.env
-
-# vercel
-.vercel
-
-# typescript
+# Cache y archivos temporales
+.cache/
+.temp/
+.tmp/
 *.tsbuildinfo
-next-env.d.ts
 
-# hardhat
-/cache
-/artifacts
-/typechain-types
-/deployments
-.openzeppelin
+# Hardhat
+cache/
+artifacts/
+typechain-types/
+deployments/
+.openzeppelin/
 *.zip
+
+# Vercel
+.vercel/
+
+# Testing
+coverage/
+.nyc_output/
+.coverage/
+
+# Package manager locks (opcional - puedes incluirlos si quieres)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Archivos grandes que no son necesarios
+*.mp4
+*.avi
+*.mov
+*.zip
+*.tar.gz
+*.rar
+
+# Archivos de configuración local específicos
+next-env.d.ts
