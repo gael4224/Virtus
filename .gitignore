@@ -56,7 +56,10 @@ artifacts/
 typechain-types/
 deployments/
 .openzeppelin/
+
+# Archivos ZIP (muy grandes para GitHub)
 *.zip
+**/*.zip
 
 # Vercel
 .vercel/
