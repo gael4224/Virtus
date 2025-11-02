@@ -1,6 +1,5 @@
 {
   "framework": "nextjs",
-  "rootDirectory": "snmontery/snmontery",
   "installCommand": "npm install",
   "buildCommand": "npm run build"
 }
