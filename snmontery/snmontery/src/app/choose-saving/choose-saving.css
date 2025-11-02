@@ -1,0 +1,435 @@
+/* Overlay para modales: fondo oscuro y centrado */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+/* Contenido del modal centrado */
+.modal-content {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 40px #0a1e5e33, 0 2px 0 #fff;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  z-index: 3100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ajustes para modales grandes (como el de grupo) */
+.group-form-modal {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2.5rem;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 40px rgba(10, 30, 94, 0.1), 0 2px 0 #fff;
+  margin: 2rem auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cuando el modal está en una página (sin overlay) */
+.choose-saving-container .group-form-modal {
+  margin: 3rem auto;
+  position: relative;
+  z-index: 1;
+}
+/* Register Modal Styles */
+.register-modal {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 40px #0a1e5e33, 0 2px 0 #fff;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+  color: #111;
+  font-size: 1.08rem;
+}
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  margin-top: 0.35rem;
+  margin-bottom: 0.25rem;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #bfc6e0;
+  font-size: 1.05rem;
+  background: #f7f8fa;
+  color: #000 !important;
+  outline: none;
+  transition: border 0.2s;
+}
+.register-form input:focus {
+  border: 1.5px solid #0a1e5e;
+  background: #fff;
+}
+/* General text color for modal */
+.modal-content,
+.modal-content label,
+.modal-content legend,
+.modal-content input,
+.modal-content .summary-box {
+  color: #000000 !important;
+}
+
+/* Form label above, help/placeholder below */
+.group-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+  color: #111;
+  font-size: 1.08rem;
+}
+.group-form input[type="text"],
+.group-form input[type="number"],
+.group-form input[type="date"] {
+  margin-top: 0.35rem;
+  margin-bottom: 0.25rem;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #bfc6e0;
+  font-size: 1.05rem;
+  background: #f7f8fa;
+  color: #000 !important;
+  outline: none;
+  transition: border 0.2s;
+}
+.group-form input[type="text"]:focus,
+.group-form input[type="number"]:focus,
+.group-form input[type="date"]:focus {
+  border: 1.5px solid #0a1e5e;
+  background: #fff;
+}
+
+/* Placeholder/help text below input */
+.input-help {
+  font-size: 0.97rem;
+  color: #666;
+  margin-bottom: 0.7rem;
+  margin-left: 2px;
+}
+
+/* Modal actions spacing */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 2.2rem;
+  padding: 0 0.2rem;
+}
+
+/* Purpose fieldset */
+.purpose-fieldset {
+  border: 1.5px solid #bfc6e0;
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+  margin-top: 0.5rem;
+  background: #f9fafb;
+  width: 100%;
+}
+
+.purpose-fieldset legend {
+  font-weight: 600;
+  color: #0a1e5e;
+  padding: 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* Purpose radio UX */
+.purpose-radio-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem 1.7rem;
+  margin-top: 0.5rem;
+}
+.purpose-radio {
+  font-weight: 500;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.other-purpose-input {
+  margin-left: 0.7rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  border: 1.2px solid #bfc6e0;
+  font-size: 1rem;
+  background: #f7f8fa;
+  color: #111;
+}
+/* Modal Overlay */
+.modal-btn {
+  min-width: 120px;
+  padding: 0.7rem 2.1rem;
+  border-radius: 1.5rem;
+  border: 2.5px solid #b6c2e1;
+  background: #fff;
+  color: #0a1e5e;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, border 0.18s, color 0.18s, box-shadow 0.18s;
+  box-shadow: 0 2px 12px #b6c2e133, 0 0.5px 0 #fff;
+  outline: none;
+  border-style: solid;
+}
+.modal-btn.primary {
+  background: #0a1e5e;
+  color: #fff;
+  border: 2.5px solid #0a1e5e;
+  box-shadow: 0 2px 12px #0a1e5e33, 0 0.5px 0 #fff;
+}
+.modal-btn:focus, .modal-btn:hover {
+  background: #f0f6ff;
+  color: #111;
+  border-color: #0a1e5e;
+  box-shadow: 0 4px 18px #b6c2e199, 0 0.5px 0 #fff;
+}
+.group-form-modal {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+.group-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 340px;
+  max-width: 380px;
+  flex: 1;
+}
+.group-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  min-width: 240px;
+  max-width: 260px;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 0.8rem;
+  border: 1.5px solid #e5e7eb;
+}
+.group-summary label {
+  font-weight: 600;
+  color: #0a1e5e;
+  margin-bottom: 0.2rem;
+  font-size: 1.05rem;
+}
+.summary-box {
+  background: #f7fafc;
+  border: 1.5px solid #b6c2e1;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.1rem;
+  font-size: 1.08rem;
+  color: #222;
+  margin-bottom: 0.2rem;
+}
+.purpose-radio-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.5rem;
+  margin-top: 0.5rem;
+}
+.purpose-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1rem;
+}
+/* Botón flotante para saltar este paso */
+.skip-step-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 2000;
+  background: #fff;
+  color: #0a1e5e;
+  border: 2px solid #b6c2e1;
+  border-radius: 2rem;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 24px #b6c2e155, 0 1.5px 0 #fff;
+  cursor: pointer;
+  transition: background 0.18s, border 0.18s, color 0.18s;
+}
+.skip-step-btn:hover {
+  background: #f0f6ff;
+  border-color: #0a1e5e;
+  color: #111;
+}
+/* ...existing code... */
+.choose-saving-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 60% 40%, #eaf3fa 0%, #b3d0ea 60%, #fff 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+.choose-saving-container::before, .choose-saving-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+.choose-saving-container::before {
+  width: 60vw;
+  height: 60vw;
+  left: -20vw;
+  top: -10vw;
+  background: radial-gradient(circle, #ffd700 0%, rgba(255,215,0,0.1) 80%, transparent 100%);
+  animation: dash-gold-move 10s ease-in-out infinite alternate;
+}
+.choose-saving-container::after {
+  width: 80vw;
+  height: 80vw;
+  right: -30vw;
+  bottom: -20vw;
+  background: radial-gradient(circle, #0a1e5e 0%, rgba(10,30,94,0.08) 80%, transparent 100%);
+  animation: dash-blue-move 12s ease-in-out infinite alternate;
+}
+@keyframes dash-gold-move {
+  0% { transform: scale(1) translateY(0); opacity: 0.5; }
+  100% { transform: scale(1.15) translateY(40px); opacity: 0.7; }
+}
+@keyframes dash-blue-move {
+  0% { transform: scale(1) translateY(0); opacity: 0.4; }
+  100% { transform: scale(1.1) translateY(-30px); opacity: 0.6; }
+}
+.choose-saving-title {
+  font-family: 'Geist', 'Comic Sans MS', 'Comic Sans', cursive;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: #0a1e5e;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(20, 18, 18, 0.533), 0 1px 0 #3f3939;
+  z-index: 1;
+}
+.choose-saving-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 480px;
+  z-index: 1;
+}
+.choose-saving-option {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.92);
+  border: 2px solid #b6c2e1;
+  border-radius: 22px;
+  padding: 1.5rem 2rem;
+  font-size: 1.25rem;
+  font-family: 'Geist', 'Comic Sans MS', 'Comic Sans', cursive;
+  cursor: pointer;
+  transition: box-shadow 0.18s, border 0.18s, background 0.18s;
+  box-shadow: 0 4px 24px #b6c2e155, 0 1.5px 0 #fff;
+  gap: 1.2rem;
+  outline: none;
+  position: relative;
+}
+.choose-saving-option:focus, .choose-saving-option:hover {
+  border: 2.5px solid #0a1e5e;
+  background: #f0f6ff;
+  box-shadow: 0 6px 32px #b6c2e199, 0 1.5px 0 #fff;
+}
+.choose-saving-option .choose-saving-label {
+  color: #111 !important;
+}
+
+/* Responsive styles para crear grupo */
+@media (max-width: 768px) {
+  .group-form-modal {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .group-form {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .group-summary {
+    min-width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+}
+
+/* Mejoras visuales adicionales */
+.group-form-modal h3 {
+  margin-bottom: 1.5rem;
+  color: #0a1e5e;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.group-form label {
+  width: 100%;
+}
+
+.group-form input,
+.group-form fieldset {
+  width: 100%;
+}
+
+.summary-box {
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
