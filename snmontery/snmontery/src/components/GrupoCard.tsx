@@ -25,7 +25,7 @@ export default function GrupoCard({ grupoId }: GrupoCardProps) {
   }
 
   const fechaObjetivo = new Date(Number(grupo.fechaObjetivo) * 1000);
-  const porcentajeCompletado = grupo.objetivo > 0n 
+  const porcentajeCompletado = grupo.objetivo > BigInt(0) 
     ? (Number(grupo.totalRecaudado) / Number(grupo.objetivo)) * 100 
     : 0;
 

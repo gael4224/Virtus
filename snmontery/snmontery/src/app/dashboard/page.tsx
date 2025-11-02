@@ -171,13 +171,13 @@ export default function DashboardPage() {
                   >
                     Crear tu Primer Grupo
                   </button>
-                </div>
+          </div>
               ) : (
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '1.5rem', marginTop: '1rem' }}>
                   {(grupoIds as bigint[]).map((grupoId) => (
                     <GrupoListItem key={Number(grupoId)} grupoId={grupoId} />
                   ))}
-                </div>
+            </div>
               )}
             </div>
           </div>

@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd snmontery/snmontery && npm install && npm run build",
+  "outputDirectory": "snmontery/snmontery/.next",
+  "framework": "nextjs",
+  "rootDirectory": "snmontery/snmontery"
+}
+

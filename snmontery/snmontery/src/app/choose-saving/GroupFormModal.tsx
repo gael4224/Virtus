@@ -9,8 +9,9 @@ import { GRUPOS_AHORRO_ABI } from "@/lib/contract-config";
 
 export default function GroupFormModal({ onClose, onDone, showOverlay = true }: { onClose: () => void, onDone: () => void, showOverlay?: boolean }) {
   const router = useRouter();
-  const { wallet } = usePrivy();
+  const { user } = usePrivy();
   const { address } = useAccount();
+  const wallet = user?.wallet;
   const { crearGrupo, isPending, isConfirming, error, receipt, hash } = useCrearGrupo();
   const { agregarParticipante, isPending: isAddingParticipant, receipt: receiptAddParticipant } = useAgregarParticipante();
   
@@ -126,10 +127,12 @@ export default function GroupFormModal({ onClose, onDone, showOverlay = true }: 
               topics: log.topics,
             });
             
-            if (decoded.eventName === 'GrupoCreado') {
-              const grupoId = decoded.args.grupoId as bigint;
-              setGrupoIdCreated(grupoId);
-              break;
+            if (decoded.eventName === 'GrupoCreado' && decoded.args) {
+              const args = decoded.args as { grupoId?: bigint };
+              if (args.grupoId !== undefined) {
+                setGrupoIdCreated(args.grupoId);
+                break;
+              }
             }
           } catch (e) {
             // Continuar con el siguiente log si este no coincide
@@ -180,7 +183,7 @@ export default function GroupFormModal({ onClose, onDone, showOverlay = true }: 
   }, [grupoIdCreated, participantesToAdd.length, onDone, router]);
   
   const content = (
-    <div className="modal-content group-form-modal">
+      <div className="modal-content group-form-modal">
         {/* Formulario a la izquierda */}
         <form className="group-form" onSubmit={handleSubmit}>
           {errorMessage && (
@@ -250,7 +253,7 @@ export default function GroupFormModal({ onClose, onDone, showOverlay = true }: 
                       : isAddingParticipant 
                         ? `Agregando participantes... (${currentParticipantIndex + 1}/${participantesToAdd.length})`
                         : "Crear Grupo"}
-                  </button>
+            </button>
           </div>
         </form>
         {/* Resumen a la derecha */}
@@ -283,8 +286,8 @@ export default function GroupFormModal({ onClose, onDone, showOverlay = true }: 
     return (
       <div className="modal-overlay">
         {content}
-      </div>
-    );
+    </div>
+  );
   }
 
   return content;

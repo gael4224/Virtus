@@ -37,8 +37,9 @@ export function useCrearGrupo() {
   const { data: receipt, isLoading: isConfirming } = useWaitForTransactionReceipt({
     hash,
   });
-  const { wallet } = usePrivy();
+  const { user } = usePrivy();
   const { address } = useAccount(); // Obtener dirección de wagmi (funciona con Privy y MetaMask)
+  const wallet = user?.wallet;
   const chainId = useChainId();
 
   const crearGrupo = async (params: CrearGrupoParams) => {
@@ -85,7 +86,7 @@ export function useCrearGrupo() {
     }
 
     writeContract({
-      address: CONTRATO_GRUPOS_AHORRO_ADDRESS,
+      address: CONTRATO_GRUPOS_AHORRO_ADDRESS as `0x${string}`,
       abi: GRUPOS_AHORRO_ABI,
       functionName: 'crearGrupo',
       args: [
@@ -116,7 +117,7 @@ export function useGruposUsuario() {
   const { address } = useAccount();
 
   const { data: grupoIds, isLoading, error } = useReadContract({
-    address: CONTRATO_GRUPOS_AHORRO_ADDRESS,
+    address: CONTRATO_GRUPOS_AHORRO_ADDRESS as `0x${string}`,
     abi: GRUPOS_AHORRO_ABI,
     functionName: 'obtenerGruposPorUsuario',
     args: address ? [address] : undefined,
@@ -137,7 +138,7 @@ export function useGruposUsuario() {
  */
 export function useInfoGrupo(grupoId: bigint | undefined) {
   const { data: infoGrupo, isLoading: isLoadingGrupo, error: errorGrupo } = useReadContract({
-    address: CONTRATO_GRUPOS_AHORRO_ADDRESS,
+    address: CONTRATO_GRUPOS_AHORRO_ADDRESS as `0x${string}`,
     abi: GRUPOS_AHORRO_ABI,
     functionName: 'obtenerGrupo',
     args: grupoId !== undefined ? [grupoId] : undefined,
@@ -147,7 +148,7 @@ export function useInfoGrupo(grupoId: bigint | undefined) {
   });
 
   const { data: participantes, isLoading: isLoadingParticipantes, error: errorParticipantes } = useReadContract({
-    address: CONTRATO_GRUPOS_AHORRO_ADDRESS,
+    address: CONTRATO_GRUPOS_AHORRO_ADDRESS as `0x${string}`,
     abi: GRUPOS_AHORRO_ABI,
     functionName: 'obtenerParticipantes',
     args: grupoId !== undefined ? [grupoId] : undefined,
@@ -207,7 +208,7 @@ export function useAportarGrupo() {
     const cantidadWei = parseEther(cantidadETH);
 
     writeContract({
-      address: CONTRATO_GRUPOS_AHORRO_ADDRESS,
+      address: CONTRATO_GRUPOS_AHORRO_ADDRESS as `0x${string}`,
       abi: GRUPOS_AHORRO_ABI,
       functionName: 'aportar',
       args: [grupoId],
@@ -230,7 +231,7 @@ export function useAportarGrupo() {
  */
 export function useBalanceGrupo(grupoId: bigint | undefined) {
   const { data: balance, isLoading, error } = useReadContract({
-    address: CONTRATO_GRUPOS_AHORRO_ADDRESS,
+    address: CONTRATO_GRUPOS_AHORRO_ADDRESS as `0x${string}`,
     abi: GRUPOS_AHORRO_ABI,
     functionName: 'obtenerBalanceTotal',
     args: grupoId !== undefined ? [grupoId] : undefined,
@@ -284,7 +285,7 @@ export function useInteresesGrupo(grupoId: bigint | undefined) {
  */
 export function useAporteParticipante(grupoId: bigint | undefined, participante?: string) {
   const { data: aporte, isLoading, error } = useReadContract({
-    address: CONTRATO_GRUPOS_AHORRO_ADDRESS,
+    address: CONTRATO_GRUPOS_AHORRO_ADDRESS as `0x${string}`,
     abi: GRUPOS_AHORRO_ABI,
     functionName: 'obtenerAporte',
     args: grupoId !== undefined && participante ? [grupoId, participante as `0x${string}`] : undefined,
@@ -321,7 +322,7 @@ export function useAgregarParticipante() {
     }
 
     writeContract({
-      address: CONTRATO_GRUPOS_AHORRO_ADDRESS,
+      address: CONTRATO_GRUPOS_AHORRO_ADDRESS as `0x${string}`,
       abi: GRUPOS_AHORRO_ABI,
       functionName: 'agregarParticipante',
       args: [grupoId, participante as `0x${string}`],

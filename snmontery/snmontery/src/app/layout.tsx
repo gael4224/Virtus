@@ -58,7 +58,7 @@ export default function RootLayout({
         >
           <QueryClientProvider client={queryClient}>
             <WagmiProvider config={wagmiConfig}>
-              {children}
+          {children}
             </WagmiProvider>
           </QueryClientProvider>
         </PrivyProvider>

@@ -8,7 +8,8 @@ import { useInfoGrupo, useAgregarParticipante } from "@/hooks/useGruposAhorro";
 export default function JoinGroupModal({ onClose, onDone }: { onClose: () => void, onDone: () => void }) {
   const router = useRouter();
   const { address } = useAccount();
-  const { wallet } = usePrivy();
+  const { user } = usePrivy();
+  const wallet = user?.wallet;
   const { agregarParticipante, isPending, isConfirming, error, receipt } = useAgregarParticipante();
   
   const [grupoId, setGrupoId] = useState("");
